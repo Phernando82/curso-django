@@ -40,31 +40,85 @@
                   <h2>
                       Curso de Python com Luciano Ramalho
                   </h2>
-                  <h4 class="mt-4"> Entre na fila de espera</h4>
-                  <form action="https://gmail.us14.list-manage.com/subscribe/post?u=f921fcd17c0963a2e02fc76bf&amp;id=9e0a20acdc"
-                        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-                        class="form-row glyphicon-align-center" target="_blank" novalidate>
-                      <div class="form-row align-items-center">
-                          <div class="col-auto">
-                              <label class="sr-only" for="mce-EMAIL">Email</label>
-                              <input type="email" value="" name="EMAIL" class="form-control required" id="mce-EMAIL"
-                                     placeholder="exemplo@email.com">
-                          </div>
-                          <div class="col-auto">
-                              <label class="sr-only" for="mce-FNAME">Email</label>
-                              <input type="text" value="" name="FNAME" class="form-control" id="mce-FNAME" placeholder="Seu nome">
-                          </div>
-                          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                                                                                                    name="b_f921fcd17c0963a2e02fc76bf_9e0a20acdc"
-                                                                                                    tabindex="-1"
-                                                                                                    value=""></div>
-                          <div class="col-auto">
-                              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
-                                     class="btn btn-primary">
-                          </div>
+                  <h6 class="mt-4"> Matricule-se já clicando no botão, promoção R$150,00</h6>
+
+                  <!--INICIO DO FORMULARIO DE BOTÃO PAYPAL-->
+                  <div class="mt-4" id="smart-button-container">
+                      <div style="text-align: center;">
+                          <div id="paypal-button-container"></div>
                       </div>
-                  </form>
+                  </div>
+                  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD"
+                          data-sdk-integration-source="button-factory"></script>
+                  <script>
+                      function initPayPalButton() {
+                          paypal.Buttons({
+                              style: {
+                                  shape: 'pill',
+                                  color: 'gold',
+                                  layout: 'horizontal',
+                                  label: 'paypal',
+
+                              },
+
+                              createOrder: function (data, actions) {
+                                  return actions.order.create({
+                                      purchase_units: [{"amount": {"currency_code": "USD", "value": 1}}]
+                                  });
+                              },
+
+                              onApprove: function (data, actions) {
+                                  return actions.order.capture().then(function (orderData) {
+
+                                      // Full available details
+                                      console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+                                      // Show a success message within this page, e.g.
+                                      const element = document.getElementById('paypal-button-container');
+                                      element.innerHTML = '';
+                                      element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+                                      // Or go to another URL:  actions.redirect('thank_you.html');
+
+                                  });
+                              },
+
+                              onError: function (err) {
+                                  console.log(err);
+                              }
+                          }).render('#paypal-button-container');
+                      }
+
+                      initPayPalButton();
+                  </script>
+                  <!--FIM DO FORMULÁRIO DE BOTÃO PAYPAL-->
+
+
+{#                  <h4 class="mt-4"> Entre na fila de espera</h4>#}
+{#                  <form action="https://gmail.us14.list-manage.com/subscribe/post?u=f921fcd17c0963a2e02fc76bf&amp;id=9e0a20acdc"#}
+{#                        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"#}
+{#                        class="form-row glyphicon-align-center" target="_blank" novalidate>#}
+{#                      <div class="form-row align-items-center">#}
+{#                          <div class="col-auto">#}
+{#                              <label class="sr-only" for="mce-EMAIL">Email</label>#}
+{#                              <input type="email" value="" name="EMAIL" class="form-control required" id="mce-EMAIL"#}
+{#                                     placeholder="exemplo@email.com">#}
+{#                          </div>#}
+{#                          <div class="col-auto">#}
+{#                              <label class="sr-only" for="mce-FNAME">Email</label>#}
+{#                              <input type="text" value="" name="FNAME" class="form-control" id="mce-FNAME" placeholder="Seu nome">#}
+{#                          </div>#}
+{#                          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->#}
+{#                          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"#}
+{#                                                                                                    name="b_f921fcd17c0963a2e02fc76bf_9e0a20acdc"#}
+{#                                                                                                    tabindex="-1"#}
+{#                                                                                                    value=""></div>#}
+{#                          <div class="col-auto">#}
+{#                              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"#}
+{#                                     class="btn btn-primary">#}
+{#                          </div>#}
+{#                      </div>#}
+{#                  </form>#}
 
 
               </div>
