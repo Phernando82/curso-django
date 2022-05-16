@@ -14,8 +14,7 @@ def test_status_code(resp):
 
 
 def test_titulo_video(resp):
-    assert_contains(resp, '<h1>Video Aperitivo: U2</h1>')
+    assert_contains(resp, '<h1 class="mt-4 mb-3">Video Aperitivo: U2</h1>')
 
-
-def test_conteu_video(resp):
+def test_conteudo_video(resp):
     assert_contains(resp, '<iframe src="https://player.vimeo.com/video/710132185?h=c8686e2489"')
