@@ -14,14 +14,22 @@ def test_status_code(resp):
 
 
 @pytest.mark.parametrize(
-    'titulo',
+    'slug',
     [
         'Video Aperitivo: U2',
         'Desafio Dev Pro'
     ]
 )
-def test_titulo_video(resp, titulo):
-    assert_contains(resp, titulo)
+def test_titulo_video(resp, slug):
+    assert_contains(resp, slug)
 
-# def test_conteudo_video(resp):
-#     assert_contains(resp, '<iframe src="https://player.vimeo.com/video/710132185"')
+@pytest.mark.parametrize(
+    'slug',
+    [
+        'u2',
+        'desafio'
+    ]
+)
+def test_link_video(resp, slug):
+    video_link = reverse('aperitivos:video', args=(slug,))
+    assert_contains(resp, f'href="{video_link}"')
