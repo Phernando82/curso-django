@@ -16,11 +16,13 @@ django-debug-toolbar = "*"
 sentry-sdk = "*"
 django-heroku = "*"
 collectfast = "*"
+model-bakery = "*"
 
 [dev-packages]
 flake8 = "*"
 pytest-cov = "*"
 codecov = "*"
+model-mommy = "*"
 
 [requires]
 python_version = "3.10"
