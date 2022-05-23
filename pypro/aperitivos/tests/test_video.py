@@ -1,13 +1,13 @@
 import pytest
 from django.urls import reverse
-from pypro.aperitivos.models import Video
+from model_bakery import baker
+
 from pypro.django_assertions import assert_contains
-from from model_bakery import baker
 
 
 @pytest.fixture
 def video(db):
-    return baker.m
+    return baker.make(video)
 
 
 @pytest.fixture
