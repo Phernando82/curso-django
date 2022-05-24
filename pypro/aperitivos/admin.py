@@ -5,4 +5,4 @@ from pypro.aperitivos.models import Video
 
 @register(Video)
 class VideoAdmin(ModelAdmin):
-    List_display = ('titulo', 'slug', 'creation', 'vimeo_id')
+    List_display = ('titulo', 'slug', 'creation', 'vimeo_id',)
