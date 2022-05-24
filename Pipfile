@@ -17,6 +17,7 @@ sentry-sdk = "*"
 django-heroku = "*"
 collectfast = "*"
 model-bakery = "*"
+django-ordered-model = "*"
 
 [dev-packages]
 flake8 = "*"
