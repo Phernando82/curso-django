@@ -18,6 +18,10 @@ django-heroku = "*"
 collectfast = "*"
 model-bakery = "*"
 django-ordered-model = "*"
+ipython = "*"
+django-extensions = "*"
+setuptools = "*"
+pyreadline = "*"
 
 [dev-packages]
 flake8 = "*"
